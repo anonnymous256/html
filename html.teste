@@ -1,56 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Consulta de CEP</title>
 </head>
 <link rel="stylesheet" href="style.css">
 <body>
-<center> <img src = "assests/mudikip.png "width="200" border="5">
-<p><h2> Alisson Ferreira Santos</h2></b></p>
-Idade - 20    Estado Civil- Solteira<br/>
-e-mail - <u></u>af073007@gmail.com</u><br/>
-<a href ="https://github.com/anonnymous256" title = "Github" target =_blank>   Github</a><br/>
-
-<img src = "C:\Users\aluno\Downloads\21-18-05-265_512.webp" width="40" heigth="60">
-
-</center>
-<hr/>
-
-<p> <b>Objetivo</b></p>
-<hr/>
-<p> Meu objetivo é agregar os conhecimentos adquiridos no decorrer de cinco anos de trabalho na área de gerenciamento de projeto, bem como seguir me qualificando.</p>
-<br/>
-
-<hr/>
-
-<p> <b>Experiencias academicas </b></p>
-<hr/>
-<P>
-<ol>    
-    <li> Curso de marketing digital  - 2 anos  </li>
-    <li> Excel basico  - 5 meses </li>
-    <li>  Administração - 2 anos - Speed Treinamentos  </li>
-    <li> Design - 5 meses - Gracon   </li>
-    <li>  Analise e Desenvolvimento de Sistemas - Em andamento - SENAI  </li>
-
-    <br/>
-
-</ol>
-
-</P>
-
-<hr/>
-<p> <b>Experiencia profissional </b></p>
-<hr/>
-<ul>
-    <li> Vidraçaria JL - 5 anos 
-    <li> Freelancer - OrçaFácil
-</ul>
-<p>
-    <button id = "Enviar" >Enviar</button>
-    <button class = "apagar">Apagar</button>
-</p>
+    <div class = "consulta">
+    <h1>Consulta de CEP</h1>
+    </div>
+    <div class = "buscar">
+    <label for="cepInput"><h2>Digite o CEP:</h2></label>
+    
+    <input type="text" id="cepInput">
+    <br>
+    <br>
+    <button id = "button" onclick="buscarEndereco()">Buscar</button>
+    <div id="endereco"></div>
+</div>
+<div id = "endereco"></div>
+    <script>
+        function buscarEndereco() {
+            var cep = document.getElementById('cepInput').value;
+            var url = `https://viacep.com.br/ws/${cep}/json/`;
+            
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if(data.erro) {
+                    document.getElementById('endereco').innerText = "CEP não encontrado.";
+                } else {
+                        var endereco = `CEP: ${data.cep}, ${data.logradouro}, ${data.bairro}, ${data.localidade}, ${data.uf}`; 
+                        
+                    document.getElementById('endereco').innerText = endereco;
+                    
+                }
+            })
+            .catch(error => console.error('Erro:', error));
+        }
+    </script>
 </body>
 </html>
