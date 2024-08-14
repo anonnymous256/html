@@ -3,8 +3,43 @@ body{
     font-family: Arial,sans-serif;
     margin:0;
     padding: 20px;
-    background-color: aliceblue;
+    background-color: rgb(88, 124, 156);
 }
-img{
-    border-radius: 550px;
+
+.consulta{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(254, 254, 254);
+    background-color: rgb(0, 0, 0);
+    border-top-style:outset;
+    text-align: center;
+    
+} 
+
+.buscar{  
+padding: 250px;   
+text-align: center ;
+
+#button{
+ 
+ width: 100px;
+ border-radius: 8px;
 }
+#cepInput{
+    width: 200px;
+    height: 30px;
+    border-radius: 4px;
+    color:rgb(73, 43, 5);
+}
+}
+
+#endereco{
+    font-size: 18px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    
+    
+    
+}
+
